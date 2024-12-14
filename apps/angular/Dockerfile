@@ -14,6 +14,6 @@ FROM node:lts-alpine AS final
 
 WORKDIR /app
 
-COPY --from=build /app/dist .
+COPY --from=build /app/dist/angular .
 
-CMD ["node", "dist/angular/server/server.mjs"]
+CMD ["node", "server/server.mjs"]
