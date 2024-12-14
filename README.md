@@ -1,2 +1,1 @@
-# devops-playground
-DevOps Playground
+# DevOps Playground
