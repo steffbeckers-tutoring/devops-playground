@@ -1,0 +1,13 @@
+name: steffbeckers-tutoring-devops-playground
+
+services:
+  angular:
+    image: ghcr.io/steffbeckers-tutoring/devops-playground-angular
+    container_name: angular
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ../../apps/angular
+    labels:
+      - "traefik.http.routers.angular.rule=Host(`angular.steffbeckers-tutoring-devops-playground.localhost`)"
+      - "traefik.http.services.angular.loadbalancer.server.port=4000"
