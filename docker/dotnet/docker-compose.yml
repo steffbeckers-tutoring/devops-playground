@@ -1,0 +1,13 @@
+name: steffbeckers-tutoring-devops-playground
+
+services:
+  dotnet:
+    image: ghcr.io/steffbeckers-tutoring/devops-playground-dotnet
+    container_name: dotnet
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ../../apps/dotnet
+    labels:
+      - "traefik.http.routers.dotnet.rule=Host(`dotnet.steffbeckers-tutoring-devops-playground.localhost`)"
+      - "traefik.http.services.dotnet.loadbalancer.server.port=8080"
