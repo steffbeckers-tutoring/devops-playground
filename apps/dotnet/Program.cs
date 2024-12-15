@@ -12,8 +12,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-// TODO
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
 string[] summaries = new[]
 {
