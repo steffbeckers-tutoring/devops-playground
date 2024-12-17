@@ -3,6 +3,18 @@ services:
     image: jenkins/jenkins:lts
     container_name: jenkins
     restart: always
+    ports:
+      - 50000
     labels:
       - "traefik.http.routers.jenkins.rule=Host(`jenkins.steffbeckers-tutoring-devops-playground.localhost`)"
       - "traefik.http.services.jenkins.loadbalancer.server.port=8080"
+  jenkins-agent-1:
+    image: jenkins/inbound-agent:latest-jdk17
+    container_name: jenkins-agent-1
+    restart: always
+    depends_on:
+      - jenkins
+    environment:
+      - JENKINS_URL=http://jenkins:8080
+      - JENKINS_AGENT_NAME=agent-1
+      - JENKINS_SECRET=067d2472c208d8bffc47705c04762cc09658ecd62878db31548d52479ec4815a
