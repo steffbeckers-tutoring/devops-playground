@@ -227,6 +227,10 @@
       </svg>
       <h1>Hello, {{ title }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
+      <h2>Weather forecast</h2>
+      <pre>
+{{ weatherForecast.value() | json }}
+      </pre>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
