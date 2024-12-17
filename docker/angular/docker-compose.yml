@@ -12,5 +12,5 @@ services:
       - "traefik.http.routers.angular.rule=Host(`angular.steffbeckers-tutoring-devops-playground.localhost`)"
       - "traefik.http.services.angular.loadbalancer.server.port=4000"
       - "traefik.http.routers.angular-api.rule=Host(`angular.steffbeckers-tutoring-devops-playground.localhost`) && PathPrefix(`/api`)"
-      - "traefik.http.routers.angular-api.entrypoints=web" # Use web entry point
+      - "traefik.http.routers.angular-api.entrypoints=web"
       - "traefik.http.routers.angular-api.service=dotnet"
